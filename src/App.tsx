@@ -1,41 +1,67 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
 import "./App.css";
 import Laptop from "./svg/components/Laptop";
 import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
+import "./index.css";
+import { DefaultTheme, ThemeProvider } from "styled-components";
+import { useEffect, useState } from "react";
+import themes from "./themes/schema.json";
+import { GlobalStyles } from "./themes/globalStyles";
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [theme, setTheme] = useState<DefaultTheme>(
+    localStorage.getItem("theme")?.length ?? -1 > 0
+      ? JSON.parse(localStorage.getItem("theme") as string)
+      : themes.light
+  );
+
+  const updateTheme = (themeName: string) => {
+    if (themeName === "light") {
+      localStorage.setItem("theme", JSON.stringify(themes.light));
+      setTheme(themes.light);
+    } else {
+      localStorage.setItem("theme", JSON.stringify(themes.dark));
+      setTheme(themes.dark);
+    }
+  };
+
+  useEffect(() => {
+    const localTheme: DefaultTheme | null = JSON.parse(
+      localStorage.getItem("theme") ?? "{}"
+    ) as DefaultTheme | null;
+
+    if (localTheme?.name) {
+      if (localTheme.name === "light") {
+        if (JSON.stringify(themes.light) !== JSON.stringify(localTheme)) {
+          updateTheme("light");
+        }
+      } else if (localTheme.name === "dark") {
+        if (JSON.stringify(themes.dark) !== JSON.stringify(localTheme)) {
+          updateTheme("dark");
+        }
+      }
+    } else {
+      localStorage.setItem("theme", JSON.stringify(themes.light));
+      setTheme(themes.light);
+    }
+  }, []);
+
   useGSAP(() => {
     gsap
       .timeline()
-      .from("#laptopBase", {
-        scaleY: 0,
-        transformOrigin: "bottom",
-        stagger: {
-          each: 0.5,
-          from: "end",
-        },
-      })
-      .from("#laptopScreen", {
+      .from(["#laptopBase"], {
         scaleY: 0,
         transformOrigin: "bottom",
       })
-      .from("#laptopKey", {
+      .from(["#laptopScreenBase", "#laptopScreenMain", ".laptopKey"], {
         scaleY: 0,
         transformOrigin: "bottom",
-        stagger: {
-          each: 0.1,
-          from: "random",
-        },
       })
       .from("#laptopPowerLight", {
         opacity: 0,
       })
-      .to("#laptopScreen", {
-        fill: "#00B2FF",
+      .to("#laptopScreenMain", {
+        fill: theme.colors.tertiary1Hover,
       })
       .from("#laptopText", {
         scaleX: 0,
@@ -72,38 +98,21 @@ function App() {
   });
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-      <Laptop
-        laptopColor="white"
-        laptopScreenColor="black"
-        laptopKeysColor="black"
-        laptopBrowserColor1="#1A1A1A"
-        laptopTextColor1="blue"
-        laptopTextColor2="white"
-        laptopTextColor3="gray"
-        laptopBrowserColor2="white"
-        laptopBrowserImageColor="green"
-        laptopPowerLightColor="blue"
-      />
+      <ThemeProvider theme={theme}>
+        <GlobalStyles />
+        <Laptop
+          laptopColor={theme.colors.secondary1}
+          laptopScreenColor={theme.colors.secondary1}
+          laptopKeysColor={theme.colors.primary1}
+          laptopBrowserColor1={theme.colors.primary1}
+          laptopTextColor1={theme.colors.tertiary1}
+          laptopTextColor2={theme.colors.primary1}
+          laptopTextColor3={theme.colors.primary2}
+          laptopBrowserColor2={theme.colors.primary2}
+          laptopBrowserImageColor={theme.colors.tertiary1}
+          laptopPowerLightColor={theme.colors.tertiary1}
+        />
+      </ThemeProvider>
     </>
   );
 }
