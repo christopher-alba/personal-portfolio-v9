@@ -134,20 +134,6 @@ export const StyledLightSVG = styled(CeilingLight)`
   }
 `;
 
-export const HeroHeading = styled.h1`
-  font-size: 5rem;
-  white-space: nowrap;
-  font-weight: 900;
-  margin-bottom: 1rem;
-  @media (max-width: 1000px) {
-    font-size: 3rem;
-  }
-  @media (max-width: 700px) {
-    font-size: 2rem;
-    white-space: pre-wrap;
-  }
-`;
-
 export const SubHeading = styled.h2`
   font-size: 2rem;
   margin: 0;

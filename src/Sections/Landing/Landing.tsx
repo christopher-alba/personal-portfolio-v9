@@ -7,7 +7,6 @@ import {
   ContainerStyled,
   ContentWrapper,
   Heading,
-  HeroHeading,
   MainDiv,
   NameSVG,
   OfferButton,
