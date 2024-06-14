@@ -4,6 +4,7 @@ import { Container } from "../../components/container";
 import Screens from "../../svg/components/Screens";
 import CeilingLight from "../../svg/components/CeilingLight";
 import ButtonLeft from "../../components/buttons";
+import Name from "../../svg/base/name.svg?react";
 
 export const MainDiv = styled.div`
   height: calc(100vh - 130px);
@@ -23,18 +24,21 @@ export const ContainerStyled = styled(Container)`
 `;
 
 export const ContentWrapper = styled.div`
-  width: 500px;
+  width: 50%;
   box-sizing: border-box;
   height: calc(100vh - 130px);
-  position: relative;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   padding: 20px;
   z-index: 10;
+  @media (max-width: 1300px) {
+    width: 100%;
+  }
   @media (max-width: 700px) {
     width: 100%;
     height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
   }
 `;
 
@@ -59,8 +63,7 @@ export const StyledScreensSVG = styled(Screens)`
     height: 350px;
   }
   @media (max-width: 1300px) {
-    bottom: 25px;
-    height: 300px;
+    display: none;
   }
 
   @media (max-width: 620px) {
@@ -88,8 +91,7 @@ export const StyledLaptopSVG = styled(Laptop)`
   }
 
   @media (max-width: 1300px) {
-    height: 130px;
-    bottom: 0px;
+    display: none;
   }
 
   @media (max-width: 620px) {
@@ -175,5 +177,13 @@ export const OfferButton = styled(ButtonLeft)`
   @media (max-width: 620px) {
     width: 100%;
     margin-top: 10px;
+  }
+`;
+
+export const NameSVG = styled(Name)`
+  @media (max-width: 700px){
+    width: 220px;
+    height: auto;
+    box-sizing: border-box;
   }
 `;

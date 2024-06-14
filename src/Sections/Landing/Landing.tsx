@@ -9,6 +9,7 @@ import {
   Heading,
   HeroHeading,
   MainDiv,
+  NameSVG,
   OfferButton,
   StyledLaptopSVG,
   StyledLightSVG,
@@ -30,6 +31,7 @@ const Landing: FC = () => {
           "#standRight",
           "#standLeft",
           "#standHole",
+          "#standKnob"
         ],
         {
           scale: 0,
@@ -113,10 +115,6 @@ const Landing: FC = () => {
 
     gsap
       .timeline()
-      .from(".hero", {
-        opacity: 0,
-        duration: 1,
-      })
       .from(".sub-hero", {
         opacity: 0,
         duration: 1,
@@ -130,7 +128,7 @@ const Landing: FC = () => {
     <MainDiv>
       <ContainerStyled>
         <ContentWrapper>
-          <HeroHeading className="hero">Christopher Alba</HeroHeading>
+          <NameSVG className="hero" />
           <SubHeading className="sub-hero">Software Engineer</SubHeading>
           <Heading className="sub-hero">@ Turners Automotive Group</Heading>
           <p className="content">

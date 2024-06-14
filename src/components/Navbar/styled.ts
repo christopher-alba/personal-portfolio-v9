@@ -22,7 +22,7 @@ export const InnerDiv = styled.div`
 `;
 
 export const ThemeButton = styled.button`
-  padding: 20px 40px;
+  padding: 10px 40px;
   display: flex;
   align-items: center;
   justify-content: center;
