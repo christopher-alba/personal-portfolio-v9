@@ -110,32 +110,49 @@ const Landing: FC = () => {
         transformOrigin: "left",
         stagger: 0.2,
       });
+
+    gsap
+      .timeline()
+      .from(".hero", {
+        opacity: 0,
+        duration: 1,
+      })
+      .from(".sub-hero", {
+        opacity: 0,
+        duration: 1,
+        stagger: 0.5,
+      })
+      .from(".content", {
+        opacity: 0,
+      });
   });
   return (
     <MainDiv>
       <ContainerStyled>
         <ContentWrapper>
-          <HeroHeading>Christopher Alba</HeroHeading>
-          <SubHeading>Software Engineer</SubHeading>
-          <Heading>@ Turners Automotive Group</Heading>
-          <p>
+          <HeroHeading className="hero">Christopher Alba</HeroHeading>
+          <SubHeading className="sub-hero">Software Engineer</SubHeading>
+          <Heading className="sub-hero">@ Turners Automotive Group</Heading>
+          <p className="content">
             I thrive on collaboration and teamwork, having gained valuable
             industry experience in both small and large software teams. In
             addition, my ability to quickly pick up new technologies and diving
             deep into investigations sets me apart.
           </p>
-          <p>
+          <p className="content">
             I’m passionate about frontend development, user experience-driven
             design, and creating seamless interfaces. However, I’m equally
             comfortable working on the server side of applications — I embrace
             full stack roles. As long as the work is challenging and offers
             opportunities for growth, count me in!
           </p>
-          <OfferButton>What can I offer?</OfferButton>
+          <OfferButton className="content">What can I offer?</OfferButton>
         </ContentWrapper>
         <SVGWrapper>
           <StyledLightSVG
-            lightColor={theme.name === "dark" ? theme.colors.tertiary2 : "lightgray"}
+            lightColor={
+              theme.name === "dark" ? theme.colors.tertiary2 : "lightgray"
+            }
             stringColor={theme.colors.secondary1}
           />
           <StyledLaptopSVG
