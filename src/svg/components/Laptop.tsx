@@ -1,6 +1,8 @@
-import { FC, useState } from "react";
+import { FC, useContext, useState } from "react";
+import { ThemeContext } from "styled-components";
 
 type LaptopProps = {
+  className?: string;
   laptopColor: string;
   laptopScreenColor: string;
   laptopKeysColor: string;
@@ -13,6 +15,7 @@ type LaptopProps = {
   laptopPowerLightColor: string;
 };
 const Laptop: FC<LaptopProps> = ({
+  className,
   laptopColor,
   laptopScreenColor,
   laptopKeysColor,
@@ -25,10 +28,10 @@ const Laptop: FC<LaptopProps> = ({
   laptopPowerLightColor,
 }) => {
   const [hovered, setHovered] = useState<string | null>(null);
+  const theme = useContext(ThemeContext);
   return (
     <svg
-      width="303"
-      height="212"
+      className={className}
       viewBox="0 0 303 212"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -93,8 +96,8 @@ const Laptop: FC<LaptopProps> = ({
         <path
           key={index}
           d={key.d}
-          opacity={0.5}
-          fill={hovered === key.d ? "#00B2FF" : laptopKeysColor}
+          opacity={hovered === key.d ? 1 : 0.5}
+          fill={hovered === key.d ? theme?.colors.tertiary1: laptopKeysColor}
           className="laptopKey"
 
           onMouseEnter={() => setHovered(key.d)}

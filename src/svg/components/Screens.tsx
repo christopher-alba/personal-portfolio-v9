@@ -1,0 +1,365 @@
+import { FC } from "react";
+
+const Screens: FC<{
+  className?: string;
+  firstMonitorScreenColor: string;
+  firstMonitorColor: string;
+  firstMonitorTextColor1: string;
+  firstMonitorTextColor2: string;
+  firstMonitorPowerLightColor: string;
+  secondMonitorScreenColor: string;
+  secondMonitorColor: string;
+  secondMonitorTextColor: string;
+  secondMonitorImageColor1: string;
+  secondMonitorImageColor2: string;
+  secondMonitorPowerLightColor: string;
+  standBottomColor: string;
+  standMiddleColor: string;
+  standKnobColor: string;
+  standUpperColor: string;
+  standHolesColor1: string;
+  standHolesColor2: string;
+  standLeftColor: string;
+  standRightColor: string;
+}> = ({
+  className,
+  firstMonitorColor,
+  firstMonitorPowerLightColor,
+  firstMonitorScreenColor,
+  firstMonitorTextColor1,
+  firstMonitorTextColor2,
+  secondMonitorColor,
+  secondMonitorImageColor1,
+  secondMonitorImageColor2,
+  secondMonitorPowerLightColor,
+  secondMonitorScreenColor,
+  secondMonitorTextColor,
+  standBottomColor,
+  standHolesColor1,
+  standHolesColor2,
+  standKnobColor,
+  standLeftColor,
+  standMiddleColor,
+  standRightColor,
+  standUpperColor,
+}) => {
+  return (
+    <svg
+      className={className}
+      viewBox="0 0 690 443"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <rect
+        x="686"
+        y="4"
+        width="362.757"
+        height="194.429"
+        rx="6"
+        transform="rotate(90 686 4)"
+        fill={secondMonitorScreenColor}
+        stroke={secondMonitorColor}
+        stroke-width="8"
+        id="secondMonitor"
+      />
+      <rect
+        x="406.309"
+        y="172.681"
+        width="37.0032"
+        height="97.224"
+        fill={standUpperColor}
+        id="standUpper"
+      />
+      <rect
+        x="411.388"
+        y="394.7"
+        width="124.795"
+        height="26.8454"
+        transform="rotate(-90 411.388 394.7)"
+        fill={standMiddleColor}
+        id="standMiddle"
+      />
+      <rect
+        x="422.997"
+        y="214.763"
+        width="142.208"
+        height="26.8454"
+        transform="rotate(180 422.997 214.763)"
+        fill={standLeftColor}
+        id="standLeft"
+      />
+      <rect
+        x="518.044"
+        y="164.7"
+        width="58.0442"
+        height="5.80442"
+        rx="2.90221"
+        fill={secondMonitorTextColor}
+        id="secondMonitorText"
+      />
+      <rect
+        x="518.044"
+        y="176.309"
+        width="58.0442"
+        height="5.80442"
+        rx="2.90221"
+        fill={secondMonitorTextColor}
+        id="secondMonitorText"
+      />
+      <rect
+        x="518.044"
+        y="187.918"
+        width="58.0442"
+        height="5.80442"
+        rx="2.90221"
+        fill={secondMonitorTextColor}
+        id="secondMonitorText"
+      />
+      <rect
+        x="594.227"
+        y="287.319"
+        width="58.0442"
+        height="5.80442"
+        rx="2.90221"
+        fill={secondMonitorTextColor}
+        id="secondMonitorText"
+      />
+      <rect
+        x="594.227"
+        y="298.927"
+        width="58.0442"
+        height="5.80442"
+        rx="2.90221"
+        fill={secondMonitorTextColor}
+        id="secondMonitorText"
+      />
+      <rect
+        x="594.227"
+        y="310.536"
+        width="58.0442"
+        height="5.80442"
+        rx="2.90221"
+        fill={secondMonitorTextColor}
+        id="secondMonitorText"
+      />
+      <rect
+        x="594.227"
+        y="88.5173"
+        width="58.0442"
+        height="5.80442"
+        rx="2.90221"
+        fill={secondMonitorTextColor}
+        id="secondMonitorText"
+      />
+      <rect
+        x="594.227"
+        y="100.126"
+        width="58.0442"
+        height="5.80442"
+        rx="2.90221"
+        fill={secondMonitorTextColor}
+        id="secondMonitorText"
+      />
+      <rect
+        x="594.227"
+        y="111.735"
+        width="58.0442"
+        height="5.80442"
+        rx="2.90221"
+        fill={secondMonitorTextColor}
+        id="secondMonitorText"
+      />
+      <rect
+        x="366.757"
+        y="254.297"
+        width="362.757"
+        height="194.429"
+        rx="6"
+        transform="rotate(-180 366.757 254.297)"
+        fill={firstMonitorScreenColor}
+        stroke={firstMonitorColor}
+        stroke-width="8"
+        id="firstMonitor"
+      />
+      <rect
+        x="50.7887"
+        y="98.675"
+        width="95.7729"
+        height="9.43218"
+        rx="4.71609"
+        fill={firstMonitorTextColor1}
+        id="firstMonitorText"
+      />
+      <rect
+        x="73.2808"
+        y="124.795"
+        width="95.7729"
+        height="10.1577"
+        rx="5.07886"
+        fill={firstMonitorTextColor2}
+        id="firstMonitorText"
+      />
+      <rect
+        x="50.7887"
+        y="151.64"
+        width="95.7729"
+        height="9.43218"
+        rx="4.71609"
+        fill={firstMonitorTextColor1}
+        id="firstMonitorText"
+      />
+      <rect
+        x="73.2808"
+        y="181.388"
+        width="95.7729"
+        height="9.43218"
+        rx="4.71609"
+        fill={firstMonitorTextColor2}
+        id="firstMonitorText"
+      />
+      <rect
+        x="50.7887"
+        y="211.136"
+        width="95.7729"
+        height="10.1577"
+        rx="5.07886"
+        fill={firstMonitorTextColor1}
+        id="firstMonitorText"
+      />
+      <rect
+        x="185.741"
+        y="98.675"
+        width="95.7729"
+        height="9.43218"
+        rx="4.71609"
+        fill={firstMonitorTextColor2}
+        id="firstMonitorText"
+      />
+      <rect
+        x="208.233"
+        y="124.795"
+        width="95.7729"
+        height="10.1577"
+        rx="5.07886"
+        fill={firstMonitorTextColor1}
+        id="firstMonitorText"
+      />
+      <rect
+        x="185.741"
+        y="151.64"
+        width="95.7729"
+        height="9.43218"
+        rx="4.71609"
+        fill={firstMonitorTextColor2}
+        id="firstMonitorText"
+      />
+      <rect
+        x="208.233"
+        y="181.388"
+        width="95.7729"
+        height="9.43218"
+        rx="4.71609"
+        fill={firstMonitorTextColor1}
+        id="firstMonitorText"
+      />
+      <rect
+        x="185.741"
+        y="211.136"
+        width="95.7729"
+        height="10.1577"
+        rx="5.07886"
+        fill={firstMonitorTextColor2}
+        id="firstMonitorText"
+      />
+      <path
+        d="M392.524 385.268H411.388L425.174 393.249L438.596 385.268H457.098L482.492 430.978L450.205 442.949H404.132L367.129 430.978L392.524 385.268Z"
+        fill={standBottomColor}
+        id="standBottom"
+      />
+      <circle
+        cx="424.811"
+        cy="307.271"
+        r="20.6782"
+        fill={standKnobColor}
+        id="standKnob"
+      />
+      <rect
+        x="422.997"
+        y="187.918"
+        width="64.5741"
+        height="26.8454"
+        fill={standRightColor}
+        id="standRight"
+      />
+      <circle
+        cx="424.811"
+        cy="224.558"
+        r="3.26498"
+        fill={standHolesColor1}
+        id="standHole"
+      />
+      <circle
+        cx="424.811"
+        cy="234.716"
+        r="3.26498"
+        fill={standHolesColor2}
+        id="standHole"
+      />
+      <circle
+        cx="424.811"
+        cy="244.874"
+        r="3.26498"
+        fill={standHolesColor1}
+        id="standHole"
+      />
+      <rect
+        x="324.322"
+        y="254.669"
+        width="34.8265"
+        height="2.17666"
+        rx="1.08833"
+        fill={firstMonitorPowerLightColor}
+        id="firstMonitorPowerLight"
+      />
+      <rect
+        x="489.022"
+        y="356.972"
+        width="34.8265"
+        height="2.17666"
+        rx="1.08833"
+        transform="rotate(-90 489.022 356.972)"
+        fill={secondMonitorPowerLightColor}
+        id="secondMonitorPowerLight"
+      />
+      <rect
+        x="522.397"
+        y="77.634"
+        width="50.7886"
+        height="50.7886"
+        rx="10"
+        fill={secondMonitorImageColor1}
+        id="secondMonitorPicture"
+      />
+      <rect
+        x="606.562"
+        y="155.994"
+        width="50.7886"
+        height="50.7886"
+        rx="10"
+        fill={secondMonitorImageColor2}
+        id="secondMonitorPicture"
+      />
+      <rect
+        x="517.319"
+        y="274.984"
+        width="50.7886"
+        height="50.7886"
+        rx="10"
+        fill={secondMonitorImageColor2}
+        id="secondMonitorPicture"
+      />
+    </svg>
+  );
+};
+
+export default Screens;

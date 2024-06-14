@@ -1,12 +1,9 @@
-import "./App.css";
-import Laptop from "./svg/components/Laptop";
-import { useGSAP } from "@gsap/react";
-import { gsap } from "gsap";
-import "./index.css";
 import { DefaultTheme, ThemeProvider } from "styled-components";
 import { useEffect, useState } from "react";
 import themes from "./themes/schema.json";
 import { GlobalStyles } from "./themes/globalStyles";
+import Landing from "./Sections/Landing/Landing";
+import Navbar from "./components/Navbar/Navbar";
 
 function App() {
   const [theme, setTheme] = useState<DefaultTheme>(
@@ -46,72 +43,12 @@ function App() {
     }
   }, []);
 
-  useGSAP(() => {
-    gsap
-      .timeline()
-      .from(["#laptopBase"], {
-        scaleY: 0,
-        transformOrigin: "bottom",
-      })
-      .from(["#laptopScreenBase", "#laptopScreenMain", ".laptopKey"], {
-        scaleY: 0,
-        transformOrigin: "bottom",
-      })
-      .from("#laptopPowerLight", {
-        opacity: 0,
-      })
-      .to("#laptopScreenMain", {
-        fill: theme.colors.tertiary1Hover,
-      })
-      .from("#laptopText", {
-        scaleX: 0,
-        transformOrigin: "left",
-        stagger: {
-          each: 0.1,
-          from: "start",
-        },
-      })
-      .from("#laptopBrowser", {
-        scaleY: 0,
-        transformOrigin: "bottom",
-      })
-      .from(
-        [
-          "#laptopBrowserHeader",
-          "#laptopBrowserHeaderTextInput",
-          "#laptopBrowserHeaderButton",
-        ],
-        {
-          scaleY: 0,
-          transformOrigin: "bottom",
-          stagger: {
-            each: 0.1,
-            from: "start",
-          },
-        }
-      )
-      .from("#laptopBrowserContent", {
-        scaleX: 0,
-        transformOrigin: "left",
-        stagger: 0.2,
-      });
-  });
   return (
     <>
       <ThemeProvider theme={theme}>
         <GlobalStyles />
-        <Laptop
-          laptopColor={theme.colors.secondary1}
-          laptopScreenColor={theme.colors.secondary1}
-          laptopKeysColor={theme.colors.primary1}
-          laptopBrowserColor1={theme.colors.primary1}
-          laptopTextColor1={theme.colors.tertiary1}
-          laptopTextColor2={theme.colors.primary1}
-          laptopTextColor3={theme.colors.primary2}
-          laptopBrowserColor2={theme.colors.primary2}
-          laptopBrowserImageColor={theme.colors.tertiary1}
-          laptopPowerLightColor={theme.colors.tertiary1}
-        />
+        <Navbar setTheme={setTheme} />
+        <Landing />
       </ThemeProvider>
     </>
   );
