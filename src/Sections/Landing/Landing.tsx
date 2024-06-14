@@ -16,7 +16,6 @@ import {
   SubHeading,
   SVGWrapper,
 } from "./styled";
-import ButtonLeft from "../../components/buttons";
 
 const Landing: FC = () => {
   const theme = useContext(ThemeContext) as DefaultTheme;
