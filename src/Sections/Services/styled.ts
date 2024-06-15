@@ -77,9 +77,13 @@ export const ParagraphWrapper = styled.div`
   flex-direction: column;
   justify-content: flex-end;
   align-items: center;
+  width: 100%;
+  overflow: hidden;
+  box-sizing: border-box;
 `;
 
 export const PeopleSVG = styled(people)`
+  width: 100%;
   height: fit-content;
   &:hover {
     transform: scale(1.1);
@@ -88,6 +92,7 @@ export const PeopleSVG = styled(people)`
 `;
 
 export const PersonSVG = styled(person)`
+  width: 100%;
   height: fit-content;
   &:hover {
     transform: scale(1.1);
@@ -101,7 +106,7 @@ export const Circle = styled.div`
   width: 50px;
   border-radius: 100%;
   margin-right: 20px;
-  transition:transform 500ms;
+  transition: transform 500ms;
   &:hover {
     transform: scale(1.2); /* Scale up the circle on hover */
   }
