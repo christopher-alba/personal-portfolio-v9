@@ -4,6 +4,8 @@ import themes from "./themes/schema.json";
 import { GlobalStyles } from "./themes/globalStyles";
 import Landing from "./Sections/Landing/Landing";
 import Navbar from "./components/Navbar/Navbar";
+import Services from "./Sections/Services/Services";
+
 
 function App() {
   const [theme, setTheme] = useState<DefaultTheme>(
@@ -49,6 +51,7 @@ function App() {
         <GlobalStyles />
         <Navbar setTheme={setTheme} />
         <Landing />
+        <Services />
       </ThemeProvider>
     </>
   );

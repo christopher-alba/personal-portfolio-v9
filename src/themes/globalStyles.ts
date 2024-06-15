@@ -16,19 +16,19 @@ export const GlobalStyles = createGlobalStyle`
     margin:0;
     &::-webkit-scrollbar-track
     {
-      background-color: ${({ theme }) => theme.colors.primary1};
+      background-color: ${({ theme }) => theme.colors.secondary1};
     }
 
     &::-webkit-scrollbar
     {
       width: 15px;
-      background-color: ${({ theme }) => theme.colors.primary1};
+      background-color: ${({ theme }) => theme.colors.secondary1};
     }
     &::-webkit-scrollbar-thumb
       {
-          background-color: ${({ theme }) => theme.colors.secondary1};;
+          background-color: ${({ theme }) => theme.colors.primary1};;
           border-radius:10px;
-          border: 3px solid ${({ theme }) => theme.colors.primary1};
+          border: 3px solid ${({ theme }) => theme.colors.secondary1};
       }
   }
   button {
