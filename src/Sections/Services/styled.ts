@@ -83,7 +83,7 @@ export const ParagraphWrapper = styled.div`
 `;
 
 export const PeopleSVG = styled(people)`
-  width: 100%;
+  width: 70%;
   height: fit-content;
   &:hover {
     transform: scale(1.1);
@@ -92,7 +92,7 @@ export const PeopleSVG = styled(people)`
 `;
 
 export const PersonSVG = styled(person)`
-  width: 100%;
+  width: 70%;
   height: fit-content;
   &:hover {
     transform: scale(1.1);
