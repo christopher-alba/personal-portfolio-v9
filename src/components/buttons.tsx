@@ -10,7 +10,7 @@ const Backdrop = styled.div`
   height: 100%;
   background: ${({ theme }) => theme.colors.tertiary1Hover};
   z-index: -1;
-  transition: 500ms;
+  transition: 300ms;
 `;
 
 const BackdropInverted = styled.div`
@@ -22,7 +22,7 @@ const BackdropInverted = styled.div`
   height: 100%;
   background: ${({ theme }) => theme.colors.tertiary2Hover};
   z-index: -1;
-  transition: 500ms;
+  transition: 300ms;
 `;
 
 const Wrapper = styled.div`
@@ -47,7 +47,7 @@ const Button = styled.button`
   cursor: pointer;
   text-transform: none;
   font-weight: 700;
-  transition: 500ms;
+  transition: 300ms;
   &:hover {
     ~ ${Backdrop} {
       width: 100%;
@@ -68,7 +68,7 @@ const ButtonInverted = styled.button`
   cursor: pointer;
   text-transform: none;
   font-weight: 700;
-  transition: 500ms;
+  transition: 300ms;
   &:hover {
     ~ ${BackdropInverted} {
       width: 100%;
