@@ -133,8 +133,14 @@ export const Title = styled.h1`
 export const StyledButtonLeft = styled(ButtonLeft)`
   width: 50%;
   margin-top:50px;
+  @media (max-width: 700px){
+    width: 100%;
+  }
 `;
 export const StyledButtonRight = styled(ButtonRight)`
   width: 50%;
   margin-top:50px;
+  @media (max-width: 700px){
+    width: 100%;
+  }
 `;

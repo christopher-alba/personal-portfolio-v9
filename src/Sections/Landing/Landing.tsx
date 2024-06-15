@@ -30,7 +30,7 @@ const Landing: FC = () => {
           "#standRight",
           "#standLeft",
           "#standHole",
-          "#standKnob"
+          "#standKnob",
         ],
         {
           scale: 0,
@@ -143,7 +143,16 @@ const Landing: FC = () => {
             full stack roles. As long as the work is challenging and offers
             opportunities for growth, count me in!
           </p>
-          <OfferButton className="content">What can I offer?</OfferButton>
+          <OfferButton
+            className="content"
+            onClick={() => {
+              document.getElementById("scrollTriggerServices")?.scrollIntoView({
+                behavior: "smooth",
+              });
+            }}
+          >
+            What can I offer?
+          </OfferButton>
         </ContentWrapper>
         <SVGWrapper>
           <StyledLightSVG

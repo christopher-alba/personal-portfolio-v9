@@ -77,25 +77,27 @@ const ButtonInverted = styled.button`
   }
 `;
 
-export const ButtonLeft: FC<{ children: ReactNode; className?: string }> = ({
-  children,
-  className,
-}) => {
+export const ButtonLeft: FC<{
+  children: ReactNode;
+  className?: string;
+  onClick: () => void;
+}> = ({ children, className, onClick }) => {
   return (
     <Wrapper className={className}>
-      <Button>{children}</Button>
+      <Button onClick={onClick}>{children}</Button>
       <Backdrop />
     </Wrapper>
   );
 };
 
-export const ButtonRight: FC<{ children: ReactNode; className?: string }> = ({
-  children,
-  className,
-}) => {
+export const ButtonRight: FC<{
+  children: ReactNode;
+  className?: string;
+  onClick: () => void;
+}> = ({ children, className, onClick }) => {
   return (
     <Wrapper className={className}>
-      <ButtonInverted>{children}</ButtonInverted>
+      <ButtonInverted onClick={onClick}>{children}</ButtonInverted>
       <BackdropInverted />
     </Wrapper>
   );

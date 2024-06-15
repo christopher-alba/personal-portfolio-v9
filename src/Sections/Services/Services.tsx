@@ -133,7 +133,13 @@ const Services: FC = () => {
                 will be an asset to your company and can contribute to your
                 codebase within the first week.
               </p>
-              <StyledButtonLeft>Download My CV</StyledButtonLeft>
+              <StyledButtonLeft
+                onClick={() => {
+                  window.open("./cv.pdf");
+                }}
+              >
+                View My CV
+              </StyledButtonLeft>
             </ParagraphWrapper>
           </ScrollAnimation>
           <ScrollAnimation animateIn="fadeIn" animateOnce={true}>
@@ -153,7 +159,13 @@ const Services: FC = () => {
                 architecture and a SPA frontend, or a vanilla HTML, JS, and CSS
                 website.
               </p>
-              <StyledButtonRight>Contact Me</StyledButtonRight>
+              <StyledButtonRight
+                onClick={() => {
+                  window.open("https://www.linkedin.com/in/christopher-alba/");
+                }}
+              >
+                Contact Me
+              </StyledButtonRight>
             </ParagraphWrapper>
           </ScrollAnimation>
         </ContentWrapper>
