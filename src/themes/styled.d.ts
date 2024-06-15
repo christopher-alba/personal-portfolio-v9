@@ -14,6 +14,7 @@ declare module "styled-components" {
       tertiary1: string;
       tertiary1Hover: string;
       tertiary2: string;
+      tertiary2Hover: string;
     };
   }
 }

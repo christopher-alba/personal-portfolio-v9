@@ -29,9 +29,9 @@ export const ThemeButton = styled.button`
   background: ${({ theme }) => theme.colors.secondary1};
   color: ${({ theme }) => theme.colors.primary1};
   border: none;
-  border-radius: 10px;
   cursor: pointer;
   z-index: 1000;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   position: relative;
   @media (max-width: 700px) {
     padding: 10px 40px;

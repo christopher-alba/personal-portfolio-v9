@@ -2,6 +2,7 @@ import styled from "styled-components";
 import Divider from "../../svg/base/divider1.svg?react";
 import people from "../../svg/base/people.svg?react";
 import person from "../../svg/base/person.svg?react";
+import { ButtonLeft, ButtonRight } from "../../components/buttons";
 
 export const DividerSVG = styled(Divider)`
   width: 100%;
@@ -127,4 +128,13 @@ export const CircleWrapper = styled.div`
 
 export const Title = styled.h1`
   font-style: italic;
+`;
+
+export const StyledButtonLeft = styled(ButtonLeft)`
+  width: 50%;
+  margin-top:50px;
+`;
+export const StyledButtonRight = styled(ButtonRight)`
+  width: 50%;
+  margin-top:50px;
 `;

@@ -3,7 +3,7 @@ import Laptop from "../../svg/components/Laptop";
 import { Container } from "../../components/container";
 import Screens from "../../svg/components/Screens";
 import CeilingLight from "../../svg/components/CeilingLight";
-import ButtonLeft from "../../components/buttons";
+import { ButtonLeft } from "../../components/buttons";
 import Name from "../../svg/base/name.svg?react";
 
 export const MainDiv = styled.div`
@@ -167,7 +167,7 @@ export const OfferButton = styled(ButtonLeft)`
 `;
 
 export const NameSVG = styled(Name)`
-  @media (max-width: 700px){
+  @media (max-width: 700px) {
     width: 220px;
     height: auto;
     box-sizing: border-box;
