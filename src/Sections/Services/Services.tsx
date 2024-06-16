@@ -24,27 +24,18 @@ const Services: FC = () => {
   const theme = useContext(ThemeContext);
 
   useGSAP(() => {
-    gsap
-      .timeline()
-      .fromTo(
-        "#divider1",
-        {
-          opacity: 0,
-          ease: "none",
-        },
-        {
-          opacity: 1,
-          duration: 2,
-          ease: "none",
-        }
-      )
-      .to("#divider1", {
-        yoyo: true,
-        scaleY: 0.9,
-        scaleX: 1.1,
-        repeat: -1,
-        duration: 3,
-      });
+    gsap.timeline().fromTo(
+      "#divider1",
+      {
+        opacity: 0,
+        ease: "none",
+      },
+      {
+        opacity: 1,
+        duration: 2,
+        ease: "none",
+      }
+    );
     gsap.from(".people", {
       opacity: 0,
       stagger: {
@@ -67,13 +58,17 @@ const Services: FC = () => {
       },
     });
     gsap.from("#divider-mask-1", {
-      yoyo: true,
-      opacity: 0.7,
+      scrollTrigger: {
+        trigger: "#scrollTriggerServices",
+        scrub: true,
+        start: "top 100%",
+        end: "bottom 100%",
+      },
+      opacity: 0.2,
       stagger: {
         amount: 0.5,
-        from: "random",
+        from: "edges",
       },
-      repeat: -1,
     });
   }, []);
   return (

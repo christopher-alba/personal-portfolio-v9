@@ -25,22 +25,20 @@ const Career: FC = () => {
           duration: 2,
           ease: "none",
         }
-      )
-      .to("#divider2", {
-        yoyo: true,
-        scaleY: 0.9,
-        scaleX: 1.1,
-        repeat: -1,
-        duration: 3,
-      });
+      );
     gsap.from("#divider-2-mask", {
-      yoyo: true,
-      opacity: 0.7,
+      scrollTrigger: {
+        trigger: "#career-trigger",
+        scrub: true,
+        start: "top 100%",
+        end: "bottom 100%",
+        
+      },
+      opacity: 0.2,
       stagger: {
         amount: 0.5,
         from: "edges",
       },
-      repeat: -1,
     });
   }, []);
   return (
