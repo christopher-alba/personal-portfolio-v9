@@ -19,9 +19,7 @@ import gsap from "gsap";
 import { Container } from "../../components/container";
 import ScrollAnimation from "react-animate-on-scroll";
 import "animate.css/animate.compat.css";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ThemeContext } from "styled-components";
-gsap.registerPlugin(ScrollTrigger);
 const Services: FC = () => {
   const theme = useContext(ThemeContext);
 
@@ -43,6 +41,7 @@ const Services: FC = () => {
       .to("#divider1", {
         yoyo: true,
         scaleY: 0.9,
+        scaleX: 1.1,
         repeat: -1,
         duration: 3,
       });
@@ -66,6 +65,15 @@ const Services: FC = () => {
       scrollTrigger: {
         trigger: "#solo",
       },
+    });
+    gsap.from("#divider-mask-1", {
+      yoyo: true,
+      opacity: 0.7,
+      stagger: {
+        amount: 0.5,
+        from: "random",
+      },
+      repeat: -1,
     });
   }, []);
   return (

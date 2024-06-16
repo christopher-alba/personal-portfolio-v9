@@ -5,8 +5,10 @@ import { GlobalStyles } from "./themes/globalStyles";
 import Landing from "./Sections/Landing/Landing";
 import Navbar from "./components/Navbar/Navbar";
 import Services from "./Sections/Services/Services";
-
-
+import Career from "./Sections/Career/Career";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
 function App() {
   const [theme, setTheme] = useState<DefaultTheme>(
     localStorage.getItem("theme")?.length ?? -1 > 0
@@ -52,6 +54,7 @@ function App() {
         <Navbar setTheme={setTheme} />
         <Landing />
         <Services />
+        <Career />
       </ThemeProvider>
     </>
   );
