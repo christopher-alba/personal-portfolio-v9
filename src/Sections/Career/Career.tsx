@@ -1,12 +1,16 @@
-import { FC } from "react";
-import { DividerSVG, MainDiv } from "./styled";
+import { FC, useState } from "react";
+import { CompaniesWrapper, DividerSVG, MainDiv } from "./styled";
 import ScrollAnimation from "react-animate-on-scroll";
 import { Header, SubHeader, CircleWrapper, Circle } from "../Services/styled";
 import { Container } from "../../components/container";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import "./animations.css";
+import { data } from "./data";
+import Section from "./Section/Section";
+
 const Career: FC = () => {
+  const [openAll, setOpenAll] = useState(0);
   useGSAP(() => {
     gsap
       .timeline({
@@ -31,8 +35,7 @@ const Career: FC = () => {
         trigger: "#career-trigger",
         scrub: true,
         start: "top 100%",
-        end: "bottom 100%",
-        
+        end: "bottom 90%",
       },
       opacity: 0.2,
       stagger: {
@@ -41,6 +44,27 @@ const Career: FC = () => {
       },
     });
   }, []);
+
+  const showAllDetails = () => {
+    setOpenAll((prev) => {
+      if (prev > 0) {
+        return prev + 1;
+      } else {
+        return 1;
+      }
+    });
+  };
+
+  const hideAllDetails = () => {
+    setOpenAll((prev) => {
+      if (prev < 0) {
+        return prev - 1;
+      } else {
+        return -1;
+      }
+    });
+  };
+
   return (
     <MainDiv id="career-trigger">
       <DividerSVG />
@@ -95,6 +119,14 @@ const Career: FC = () => {
             </ScrollAnimation>
           </CircleWrapper>
         </div>
+
+        <CompaniesWrapper>
+          <button onClick={showAllDetails}>View All Details</button>
+          <button onClick={hideAllDetails}>Hide All Details</button>
+          {data.map((x, i) => (
+            <Section key={i} company={x} overrideOpen={openAll} />
+          ))}
+        </CompaniesWrapper>
       </Container>
     </MainDiv>
   );

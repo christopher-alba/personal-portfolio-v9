@@ -37,3 +37,6 @@ export const MainDiv = styled.div`
   min-height: 100vh;
 `;
 
+export const CompaniesWrapper = styled.div`
+  margin-top: 20%;
+`;
