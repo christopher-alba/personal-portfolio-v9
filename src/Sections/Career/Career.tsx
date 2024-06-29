@@ -1,5 +1,5 @@
 import { FC, useState } from "react";
-import { CompaniesWrapper, DividerSVG, MainDiv } from "./styled";
+import { CompaniesWrapper, DividerSVG, HideAllButton, MainDiv, ViewAllButton } from "./styled";
 import ScrollAnimation from "react-animate-on-scroll";
 import { Header, SubHeader, CircleWrapper, Circle } from "../Services/styled";
 import { Container } from "../../components/container";
@@ -35,7 +35,7 @@ const Career: FC = () => {
         trigger: "#career-trigger",
         scrub: true,
         start: "top 100%",
-        end: "bottom 90%",
+        end: "60% 100%",
       },
       opacity: 0.2,
       stagger: {
@@ -121,8 +121,8 @@ const Career: FC = () => {
         </div>
 
         <CompaniesWrapper>
-          <button onClick={showAllDetails}>View All Details</button>
-          <button onClick={hideAllDetails}>Hide All Details</button>
+          <ViewAllButton onClick={showAllDetails}>View All Details</ViewAllButton>
+          <HideAllButton onClick={hideAllDetails}>Hide All Details</HideAllButton>
           {data.map((x, i) => (
             <Section key={i} company={x} overrideOpen={openAll} />
           ))}

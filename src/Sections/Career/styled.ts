@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import Divider from "../../svg/base/divider2.svg?react";
 
 export const DividerSVG = styled(Divider)`
@@ -32,11 +32,28 @@ export const DividerSVG = styled(Divider)`
 export const MainDiv = styled.div`
   position: relative;
   padding-top: 100px;
-  overflow-x: hidden;
+  overflow: hidden;
   padding-bottom: 200px;
-  min-height: 100vh;
 `;
 
 export const CompaniesWrapper = styled.div`
   margin-top: 20%;
+`;
+
+const visibilityCss = css`
+  padding: 10px 40px;
+  border: none;
+  margin-right: 10px;
+  border-radius:5px;
+  cursor: pointer;
+`;
+export const ViewAllButton = styled.button`
+  ${visibilityCss}
+  background: ${({theme}) => theme.colors.tertiary2};
+  color: ${({theme}) => theme.colors.secondary1};  
+`;
+export const HideAllButton = styled.button`
+  ${visibilityCss}
+  background: ${({theme}) => theme.colors.secondary1};
+  color: ${({theme}) => theme.colors.primary1}; 
 `;

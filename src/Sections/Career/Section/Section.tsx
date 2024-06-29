@@ -1,20 +1,32 @@
-import { FC, useEffect, useState } from "react";
+import { FC, useEffect, useState, useRef, useContext } from "react";
+import { gsap } from "gsap";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import { Company } from "../data";
 import {
   BottomInnerDiv,
   BottomWrapper,
+  CompanyHeading,
+  CompanyLink,
+  DateHeading,
+  MainWrapper,
+  PositionHeading,
   TechPill,
   TechWrapper,
+  ToggleButton,
   UpperWrapper,
 } from "./styled";
+import { ThemeContext } from "styled-components";
 
 const Section: FC<{ company: Company; overrideOpen: number }> = ({
   company,
   overrideOpen,
 }) => {
-  console.log("TESTING A", overrideOpen);
-
   const [open, setOpen] = useState(false);
+  const bottomWrapperRef = useRef(null);
+  const iconRef = useRef(null);
+  const theme = useContext(ThemeContext);
+
   useEffect(() => {
     if (overrideOpen > 0) {
       setOpen(true);
@@ -22,43 +34,71 @@ const Section: FC<{ company: Company; overrideOpen: number }> = ({
       setOpen(false);
     }
   }, [overrideOpen]);
+
+  useEffect(() => {
+    if (open) {
+      gsap.to(bottomWrapperRef.current, {
+        height: "auto",
+        duration: 0.5,
+        opacity: 1,
+        ease: "power2.inOut",
+      });
+      gsap.to(iconRef.current, {
+        rotation: 180,
+        duration: 0.5,
+        background: theme?.colors.tertiary1,
+        ease: "power2.inOut",
+      });
+    } else {
+      gsap.to(bottomWrapperRef.current, {
+        height: 0,
+        duration: 0.5,
+        opacity: 0,
+        ease: "power2.inOut",
+      });
+      gsap.to(iconRef.current, {
+        rotation: 0,
+        duration: 0.5,
+        background: theme?.colors.tertiary2,
+        ease: "power2.inOut",
+      });
+    }
+  }, [open]);
+
   const toggleSectionDetails = () => {
     setOpen(!open);
   };
+
   return (
-    <div>
+    <MainWrapper onClick={toggleSectionDetails}>
       <UpperWrapper>
         <div>
-          <h3>{company.dateString}</h3>
-          <h1>{company.name}</h1>
-          <h1>{company.position}</h1>
+          <DateHeading>{company.dateString}</DateHeading>
+          <CompanyHeading>{company.name}</CompanyHeading>
+          <PositionHeading>{company.position}</PositionHeading>
         </div>
         <div>
-          <button onClick={toggleSectionDetails}>Toggle</button>
+          <ToggleButton onClick={toggleSectionDetails} ref={iconRef}>
+            <FontAwesomeIcon icon={faChevronDown} />
+          </ToggleButton>
         </div>
       </UpperWrapper>
-      {open && (
-        <BottomWrapper>
-          <BottomInnerDiv>
-            <p>{company.summary}</p>
-            <a
-              href={company.website}
-              target="_blank"
-              rel="noopenner noreferrer"
-            >
-              Visit {company.nameShort}
-            </a>
-          </BottomInnerDiv>
-          <BottomInnerDiv>
-            <TechWrapper>
-              {company.technologies.map((x) => (
-                <TechPill>{x}</TechPill>
-              ))}
-            </TechWrapper>
-          </BottomInnerDiv>
-        </BottomWrapper>
-      )}
-    </div>
+      <BottomWrapper ref={bottomWrapperRef}>
+        <BottomInnerDiv>
+          <p>{company.summary}</p>
+          <CompanyLink href={company.website} target="_blank" rel="noopener noreferrer">
+            Visit {company.nameShort}
+          </CompanyLink>
+        </BottomInnerDiv>
+        <BottomInnerDiv>
+          <TechWrapper>
+            {company.technologies.map((x) => (
+              <TechPill key={x}>{x}</TechPill>
+            ))}
+          </TechWrapper>
+        </BottomInnerDiv>
+      </BottomWrapper>
+    </MainWrapper>
   );
 };
 

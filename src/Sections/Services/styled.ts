@@ -52,7 +52,7 @@ export const Header = styled.h1`
 `;
 export const SubHeader = styled.h2`
   font-size: 2rem;
-  color: ${({ theme }) => theme.colors.primary1};
+  color: ${({ theme }) => theme.colors.secondary1};
   font-style: italic;
   margin-top: 0;
   @media (max-width: 1000px) {
